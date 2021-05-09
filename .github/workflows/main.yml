@@ -44,4 +44,4 @@ jobs:
         with:
           dotnet-version: '3.1.x'
       - run: |
-          dotnet build HelloWorld.cs
+          dotnet run
