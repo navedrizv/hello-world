@@ -35,4 +35,13 @@ jobs:
       - uses: actions/setup-node@v2
       - run: |
           node HelloWorld.js
-          
+      
+  cs:    
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - run: |
+          dotnet build HelloWorld.cs
