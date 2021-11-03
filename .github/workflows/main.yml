@@ -57,14 +57,25 @@ jobs:
       - run: python HelloWorld.py
 
   cpp:
-    runs-on: ubuntu-latest
+    runs-on: C++
     steps:
       - uses: actions/checkout@v2
       - uses: nicledomaS/cmake_build_action@v1.4
       - run: |
           .\HelloWorld
     
-    
+  rust:
+    name: Rust
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --manifest-path hello-world
     
     
     
