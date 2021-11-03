@@ -76,7 +76,7 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --manifest-path hello-world
+          args: --manifest-path /home/runner/work/hello-world/hello-world
     
     
     
