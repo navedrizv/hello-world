@@ -2,13 +2,13 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,38 +22,38 @@ jobs:
       - name: Run a one-line script
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: "7.4"
       - run: |
           pwd
           ls
           php HelloWorld.php
-    
-  js:    
+
+  js:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
       - run: |
           node HelloWorld.js
-      
-  cs:    
+
+  cs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.x'
+          dotnet-version: "5.0.x"
       - run: |
           dotnet run
-          
-  python:    
+
+  python:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+          python-version: "3.x" # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: "x64" # optional x64 or x86. Defaults to x64 if not specified
       - run: python HelloWorld.py
 
   cpp:
@@ -63,7 +63,7 @@ jobs:
       - uses: nicledomaS/cmake_build_action@v1.4
       - run: |
           .\HelloWorld
-    
+
   rust:
     name: Rust
     runs-on: ubuntu-latest
@@ -77,6 +77,16 @@ jobs:
         with:
           command: run
           args: --manifest-path /home/runner/work/hello-world/hello-world
-    
-    
-    
+
+  go:
+    name: Go
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v2
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run
+        run: go run .
