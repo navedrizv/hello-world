@@ -101,3 +101,14 @@ jobs:
           distribution: "temurin" # See 'Supported distributions' for available options
           java-version: "17"
       - run: javac HelloWorld.java
+
+  scala:
+    name: Scala
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: olafurpg/setup-scala@v11
+      - name: Compile
+        run: sbt compile
+      - name: Run
+        run: sbt run
