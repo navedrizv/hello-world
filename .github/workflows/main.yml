@@ -112,3 +112,11 @@ jobs:
         run: sbt compile
       - name: Run
         run: sbt run
+
+  perl:
+    name: Perl
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: |
+          perl HelloWorld.pl
