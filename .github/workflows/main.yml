@@ -62,7 +62,7 @@ jobs:
 
   cpp:
     name: C++
-    runs-on: C++
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: nicledomaS/cmake_build_action@v1.4
