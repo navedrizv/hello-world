@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: nicledomaS/cmake_build_action@v1.4
       - run: |
-          .\HelloWorld
+          g++ HelloWorld.cpp && ./a.out
 
   rust:
     name: Rust
