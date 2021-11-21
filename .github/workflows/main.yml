@@ -69,20 +69,6 @@ jobs:
       - run: |
           g++ HelloWorld.cpp && ./a.out
 
-  rust:
-    name: Rust
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - run: pwd
-      - uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: --manifest-path /home/runner/work/hello-world/hello-world
-
   go:
     name: Go
     runs-on: ubuntu-latest
@@ -106,17 +92,6 @@ jobs:
           distribution: "temurin" # See 'Supported distributions' for available options
           java-version: "17"
       - run: javac HelloWorld.java
-
-  scala:
-    name: Scala
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: olafurpg/setup-scala@v11
-      - name: Compile
-        run: sbt compile
-      - name: Run
-        run: sbt run
 
   perl:
     name: Perl
