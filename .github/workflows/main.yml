@@ -19,7 +19,9 @@ jobs:
     name: PHP
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
+
       - name: Run a one-line script
         uses: shivammathur/setup-php@v2
         with:
